@@ -13,8 +13,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderHag extends RenderPlayerMob<EntityHag> {
 
-	public static final ResourceLocation TEXTURE = new ResourceLocation("nightmares", "textures/entity/hag.png");
-	
+    public static final ResourceLocation TEXTURE = new ResourceLocation("nightmares", "textures/entity/hag.png");
+
     public RenderHag (RenderManager renderManager) {
 
         super(renderManager, new ModelPlayerMob(0.5f, true));
@@ -34,10 +34,10 @@ public class RenderHag extends RenderPlayerMob<EntityHag> {
             return new RenderHag(manager);
         }
     }
-    
+
     @Override
-    public void setOverlayVisibility(EntityHag entity, ModelPlayerMob model) {
-        
+    public void setOverlayVisibility (EntityHag entity, ModelPlayerMob model) {
+
         model.bipedHeadwear.showModel = true;
         model.bodyOverlay.showModel = false;
         model.leftLegOverlay.showModel = false;

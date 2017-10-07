@@ -19,27 +19,27 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Mod(modid = "nightmares", name = "Nightmares", version = "@VERSION@", dependencies = "required-after:bookshelf@[2.2.457,);", certificateFingerprint = "@FINGERPRINT@")
 public class Nightmares {
 
-	public static final RegistryHelper helper = new RegistryHelper("nightmares").enableAutoRegistration();
-	public static final LoggingHelper log = new LoggingHelper("nightmares");
+    public static final RegistryHelper helper = new RegistryHelper("nightmares").enableAutoRegistration();
+    public static final LoggingHelper log = new LoggingHelper("nightmares");
 
-	@EventHandler
-	public void onPreInit(FMLPreInitializationEvent event) {
+    @EventHandler
+    public void onPreInit (FMLPreInitializationEvent event) {
 
-		MinecraftForge.EVENT_BUS.register(this);
-		helper.registerMob(EntityHag.class, "hag", 0, MCColor.DYE_YELLOW.getRGB(), MCColor.DYE_LIME.getRGB());
-		
-		RenderingRegistry.registerEntityRenderingHandler(EntityHag.class, new RenderHag.Factory());
-	}
-	
-	@SubscribeEvent
-	public void playerSleep(PlayerSleepInBedEvent event) {
-		
-		event.setResult(SleepResult.NOT_SAFE);
+        MinecraftForge.EVENT_BUS.register(this);
+        helper.registerMob(EntityHag.class, "hag", 0, MCColor.DYE_YELLOW.getRGB(), MCColor.DYE_LIME.getRGB());
 
-		final EntityZombie zombie = new EntityZombie(event.getEntityPlayer().getEntityWorld());
-		final BlockPos ps = event.getPos();
-		zombie.setPosition(ps.getX() + 0.5f, ps.getY() + 0.6f, ps.getZ() + 0.5f);
-		zombie.setRevengeTarget(event.getEntityPlayer());
-		event.getEntityPlayer().getEntityWorld().spawnEntity(zombie);
-	}
+        RenderingRegistry.registerEntityRenderingHandler(EntityHag.class, new RenderHag.Factory());
+    }
+
+    @SubscribeEvent
+    public void playerSleep (PlayerSleepInBedEvent event) {
+
+        event.setResult(SleepResult.NOT_SAFE);
+
+        final EntityZombie zombie = new EntityZombie(event.getEntityPlayer().getEntityWorld());
+        final BlockPos ps = event.getPos();
+        zombie.setPosition(ps.getX() + 0.5f, ps.getY() + 0.6f, ps.getZ() + 0.5f);
+        zombie.setRevengeTarget(event.getEntityPlayer());
+        event.getEntityPlayer().getEntityWorld().spawnEntity(zombie);
+    }
 }
