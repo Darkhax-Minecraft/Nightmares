@@ -1,0 +1,24 @@
+[  
+   {  
+      "modid":"nightmares",
+      "name":"Nightmares",
+      "description":"Adds nightmares and nightmare mobs",
+      "version":"${version}",
+      "mcversion":"${mcversion}",
+      "logoFile": "",
+      "url":"https://minecraft.curseforge.com/projects/nightmares",
+      "updateUrl":"",
+      "authorList":[  
+         "Darkhax"
+      ],
+      "credits":"",
+      "logoFile":"",
+      "screenshots":[  
+
+      ],
+      "parent":"",
+      "dependencies":[  
+
+      ]
+   }
+]
