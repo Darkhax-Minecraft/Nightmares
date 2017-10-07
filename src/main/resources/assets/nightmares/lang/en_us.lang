@@ -1,0 +1,7 @@
+#English language file for Nightmares
+
+#Entity Names
+entity.nightmares.hag.name=Hag
+
+#Misc
+death.nightmare.attack=%s was consumed by their nightmares.
