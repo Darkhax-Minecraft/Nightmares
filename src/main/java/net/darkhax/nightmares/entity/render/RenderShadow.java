@@ -1,11 +1,8 @@
 package net.darkhax.nightmares.entity.render;
 
-import org.lwjgl.opengl.GL11;
-
 import net.darkhax.bookshelf.client.model.ModelPlayerMob;
 import net.darkhax.bookshelf.client.rendering.RenderPlayerMob;
 import net.darkhax.nightmares.entity.EntityShadow;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.GlStateManager.Profile;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -21,7 +18,7 @@ public class RenderShadow extends RenderPlayerMob<EntityShadow> {
 
     public RenderShadow (RenderManager renderManager) {
 
-        //TODO randomize player model
+        // TODO randomize player model
         super(renderManager, new ModelPlayerMob(0.5f, false));
         this.setBlendProfile(Profile.TRANSPARENT_MODEL);
     }
@@ -31,18 +28,7 @@ public class RenderShadow extends RenderPlayerMob<EntityShadow> {
 
         return TEXTURE;
     }
-    
-    @Override
-    public void setOverlayVisibility (EntityShadow entity, ModelPlayerMob model) {
 
-        model.bipedHeadwear.showModel = true;
-        model.bodyOverlay.showModel = false;
-        model.leftLegOverlay.showModel = false;
-        model.rightLegLverlay.showModel = false;
-        model.leftArmOverlay.showModel = false;
-        model.rightArmOverlay.showModel = false;
-    }
-    
     public static class Factory implements IRenderFactory<EntityShadow> {
 
         @Override
