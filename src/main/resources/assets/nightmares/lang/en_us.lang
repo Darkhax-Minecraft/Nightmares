@@ -7,3 +7,4 @@ entity.nightmares.spider.name=Phantasmic Spider
 
 #Misc
 death.nightmare.attack=%s was consumed by their nightmares.
+nightmare.default.alert=It was only a dream...

@@ -51,8 +51,6 @@ public class NightmareTracker {
 
                 this.player.wakeUpPlayer(true, true, false);
                 this.stop();
-
-                // TODO spawn nightmare
             }
         }
     }

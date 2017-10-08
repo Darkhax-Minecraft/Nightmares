@@ -2,6 +2,7 @@ package net.darkhax.nightmares;
 
 import net.darkhax.bookshelf.lib.LoggingHelper;
 import net.darkhax.bookshelf.lib.MCColor;
+import net.darkhax.bookshelf.lib.WeightedSelector;
 import net.darkhax.bookshelf.registry.RegistryHelper;
 import net.darkhax.nightmares.entity.EntityHag;
 import net.darkhax.nightmares.entity.EntityPhantasmicSpider;
@@ -10,6 +11,7 @@ import net.darkhax.nightmares.entity.render.RenderHag;
 import net.darkhax.nightmares.entity.render.RenderPhantasmicSpider;
 import net.darkhax.nightmares.entity.render.RenderShadow;
 import net.darkhax.nightmares.handler.NightmareTracker;
+import net.darkhax.nightmares.nightmare.INightmare;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
@@ -25,6 +27,11 @@ public class Nightmares {
 
     public static final RegistryHelper helper = new RegistryHelper("nightmares").enableAutoRegistration();
     public static final LoggingHelper log = new LoggingHelper("nightmares");
+
+    /**
+     * A weighted registry of all the nightmare situations.
+     */
+    public static final WeightedSelector<INightmare> NIGHTMARE_REGISTRY = new WeightedSelector<>();
 
     /**
      * Creature type used by all nightmare mobs.
