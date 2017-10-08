@@ -4,8 +4,10 @@ import net.darkhax.bookshelf.lib.LoggingHelper;
 import net.darkhax.bookshelf.lib.MCColor;
 import net.darkhax.bookshelf.registry.RegistryHelper;
 import net.darkhax.nightmares.entity.EntityHag;
+import net.darkhax.nightmares.entity.EntityPhantasmicSpider;
 import net.darkhax.nightmares.entity.EntityShadow;
 import net.darkhax.nightmares.entity.render.RenderHag;
+import net.darkhax.nightmares.entity.render.RenderPhantasmicSpider;
 import net.darkhax.nightmares.entity.render.RenderShadow;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer.SleepResult;
@@ -30,9 +32,11 @@ public class Nightmares {
         MinecraftForge.EVENT_BUS.register(this);
         helper.registerMob(EntityHag.class, "hag", 0, MCColor.DYE_YELLOW.getRGB(), MCColor.DYE_LIME.getRGB());
         helper.registerMob(EntityShadow.class, "shadow", 1, MCColor.DYE_BLACK.getRGB(), MCColor.DYE_WHITE.getRGB());
+        helper.registerMob(EntityPhantasmicSpider.class, "spider", 2, MCColor.DYE_MAGENTA.getRGB(), MCColor.DYE_PURPLE.getRGB());
 
         RenderingRegistry.registerEntityRenderingHandler(EntityHag.class, new RenderHag.Factory());
         RenderingRegistry.registerEntityRenderingHandler(EntityShadow.class, new RenderShadow.Factory());
+        RenderingRegistry.registerEntityRenderingHandler(EntityPhantasmicSpider.class, new RenderPhantasmicSpider.Factory());
     }
 
     @SubscribeEvent
