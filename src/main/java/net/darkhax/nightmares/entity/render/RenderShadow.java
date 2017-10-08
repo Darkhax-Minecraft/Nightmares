@@ -13,27 +13,27 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class RenderShadow extends RenderPlayerMob<EntityShadow> {
-    
+
     public static final ResourceLocation TEXTURE = new ResourceLocation("nightmares", "textures/entity/shadow.png");
-    
+
     public RenderShadow (RenderManager renderManager) {
-        
+
         // TODO randomize player model
         super(renderManager, new ModelPlayerMob(0.5f, false));
         this.setBlendProfile(Profile.TRANSPARENT_MODEL);
     }
-    
+
     @Override
     protected ResourceLocation getEntityTexture (EntityShadow entity) {
-        
+
         return TEXTURE;
     }
-    
+
     public static class Factory implements IRenderFactory<EntityShadow> {
-        
+
         @Override
         public Render<? super EntityShadow> createRenderFor (RenderManager manager) {
-            
+
             return new RenderShadow(manager);
         }
     }

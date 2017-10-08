@@ -13,15 +13,15 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class EntityShadow extends EntityPlayerMob {
-    
+
     public EntityShadow (World world) {
-        
+
         super(world);
     }
-    
+
     @Override
     public void initEntityAI () {
-        
+
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(2, new EntityAINightmareAttackMelee(this, 1.0D, false));
         this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
@@ -30,10 +30,10 @@ public class EntityShadow extends EntityPlayerMob {
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget<>(this, EntityPlayer.class, true));
     }
-    
+
     @Override
     public void applyEntityAttributes () {
-        
+
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(15.0D);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
