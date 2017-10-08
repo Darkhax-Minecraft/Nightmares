@@ -9,10 +9,12 @@ import net.darkhax.nightmares.entity.EntityShadow;
 import net.darkhax.nightmares.entity.render.RenderHag;
 import net.darkhax.nightmares.entity.render.RenderPhantasmicSpider;
 import net.darkhax.nightmares.entity.render.RenderShadow;
+import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer.SleepResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -25,10 +27,15 @@ public class Nightmares {
 
     public static final RegistryHelper helper = new RegistryHelper("nightmares").enableAutoRegistration();
     public static final LoggingHelper log = new LoggingHelper("nightmares");
+    
+    /**
+     * Creature type used by all nightmare mobs. 
+     */
+    public static final EnumCreatureAttribute NIGHTMARE = EnumHelper.addCreatureAttribute("NIGHTMARE");
 
     @EventHandler
     public void onPreInit (FMLPreInitializationEvent event) {
-
+        
         MinecraftForge.EVENT_BUS.register(this);
         helper.registerMob(EntityHag.class, "hag", 0, MCColor.DYE_YELLOW.getRGB(), MCColor.DYE_LIME.getRGB());
         helper.registerMob(EntityShadow.class, "shadow", 1, MCColor.DYE_BLACK.getRGB(), MCColor.DYE_WHITE.getRGB());
