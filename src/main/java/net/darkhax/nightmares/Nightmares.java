@@ -22,34 +22,35 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod(modid = "nightmares", name = "Nightmares", version = "@VERSION@", dependencies = "required-after:bookshelf@[2.2.457,);", certificateFingerprint = "@FINGERPRINT@")
 public class Nightmares {
-
+    
     public static final RegistryHelper helper = new RegistryHelper("nightmares").enableAutoRegistration();
     public static final LoggingHelper log = new LoggingHelper("nightmares");
-
+    
     /**
      * Creature type used by all nightmare mobs.
      */
     public static final EnumCreatureAttribute NIGHTMARE = EnumHelper.addCreatureAttribute("NIGHTMARE");
-
+    
     @EventHandler
     public void onPreInit (FMLPreInitializationEvent event) {
-
+        
         MinecraftForge.EVENT_BUS.register(this);
         helper.registerMob(EntityHag.class, "hag", 0, MCColor.DYE_LIME.getRGB(), MCColor.DYE_YELLOW.getRGB());
         helper.registerMob(EntityShadow.class, "shadow", 1, MCColor.DYE_BLACK.getRGB(), MCColor.DYE_WHITE.getRGB());
         helper.registerMob(EntityPhantasmicSpider.class, "spider", 2, MCColor.DYE_MAGENTA.getRGB(), MCColor.DYE_PURPLE.getRGB());
-
+        
+        // TODO probably get around to making things server safe.
         RenderingRegistry.registerEntityRenderingHandler(EntityHag.class, new RenderHag.Factory());
         RenderingRegistry.registerEntityRenderingHandler(EntityShadow.class, new RenderShadow.Factory());
         RenderingRegistry.registerEntityRenderingHandler(EntityPhantasmicSpider.class, new RenderPhantasmicSpider.Factory());
     }
-
+    
     @SubscribeEvent
     public void playerSleep (PlayerSleepInBedEvent event) {
-
-        if (!event.getEntityPlayer().getEntityWorld().isRemote)
-
+        
+        if (!event.getEntityPlayer().getEntityWorld().isRemote) {
             // TODO add a probability
             new NightmareTracker(event.getEntityPlayer());
+        }
     }
 }

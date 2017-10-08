@@ -11,64 +11,65 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
  * will be removed from the event bus.
  */
 public class NightmareTracker {
-
+    
     /**
      * The player being tracked.
      */
     private final EntityPlayer player;
-
+    
     /**
      * The amount of ticks before the nightmare starts.
      */
     private int ticksTillAttack;
-
+    
     /**
      * Constructs a new tracker for an entity. This will automatically start the tracker.
      *
      * @param player The player to track.
      */
     public NightmareTracker (EntityPlayer player) {
-
+        
         this.player = player;
         this.ticksTillAttack = 15;
         this.start();
     }
-
+    
     @SubscribeEvent
     public void onPlayerTick (TickEvent.PlayerTickEvent event) {
-
+        
         // Break the nightmare
-        if (this.player == null || this.player.isDead || !this.player.isPlayerSleeping())
+        if (this.player == null || this.player.isDead || !this.player.isPlayerSleeping()) {
             this.stop();
-
+        }
+        
         // Tick the nightmare
         if (event.player == this.player) {
-
+            
             this.ticksTillAttack--;
-
+            
             if (this.ticksTillAttack < 1) {
-
+                
                 this.player.wakeUpPlayer(true, true, false);
                 this.stop();
-
+                
                 // TODO spawn nightmare
             }
         }
     }
-
+    
     /**
      * Starts the nightmare tracker.
      */
     private void start () {
-
+        
         MinecraftForge.EVENT_BUS.register(this);
     }
-
+    
     /**
      * Stops the nightmare tracker.
      */
     private void stop () {
-
+        
         MinecraftForge.EVENT_BUS.unregister(this);
     }
 }
