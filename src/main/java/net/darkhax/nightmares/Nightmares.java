@@ -37,7 +37,7 @@ public class Nightmares {
     public void onPreInit (FMLPreInitializationEvent event) {
         
         MinecraftForge.EVENT_BUS.register(this);
-        helper.registerMob(EntityHag.class, "hag", 0, MCColor.DYE_YELLOW.getRGB(), MCColor.DYE_LIME.getRGB());
+        helper.registerMob(EntityHag.class, "hag", 0, MCColor.DYE_LIME.getRGB(),  MCColor.DYE_YELLOW.getRGB());
         helper.registerMob(EntityShadow.class, "shadow", 1, MCColor.DYE_BLACK.getRGB(), MCColor.DYE_WHITE.getRGB());
         helper.registerMob(EntityPhantasmicSpider.class, "spider", 2, MCColor.DYE_MAGENTA.getRGB(), MCColor.DYE_PURPLE.getRGB());
 
