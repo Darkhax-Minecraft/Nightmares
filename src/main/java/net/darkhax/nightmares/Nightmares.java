@@ -9,10 +9,8 @@ import net.darkhax.nightmares.entity.EntityShadow;
 import net.darkhax.nightmares.entity.render.RenderHag;
 import net.darkhax.nightmares.entity.render.RenderPhantasmicSpider;
 import net.darkhax.nightmares.entity.render.RenderShadow;
+import net.darkhax.nightmares.handler.NightmareTracker;
 import net.minecraft.entity.EnumCreatureAttribute;
-import net.minecraft.entity.monster.EntityZombie;
-import net.minecraft.entity.player.EntityPlayer.SleepResult;
-import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
@@ -27,17 +25,17 @@ public class Nightmares {
 
     public static final RegistryHelper helper = new RegistryHelper("nightmares").enableAutoRegistration();
     public static final LoggingHelper log = new LoggingHelper("nightmares");
-    
+
     /**
-     * Creature type used by all nightmare mobs. 
+     * Creature type used by all nightmare mobs.
      */
     public static final EnumCreatureAttribute NIGHTMARE = EnumHelper.addCreatureAttribute("NIGHTMARE");
 
     @EventHandler
     public void onPreInit (FMLPreInitializationEvent event) {
-        
+
         MinecraftForge.EVENT_BUS.register(this);
-        helper.registerMob(EntityHag.class, "hag", 0, MCColor.DYE_LIME.getRGB(),  MCColor.DYE_YELLOW.getRGB());
+        helper.registerMob(EntityHag.class, "hag", 0, MCColor.DYE_LIME.getRGB(), MCColor.DYE_YELLOW.getRGB());
         helper.registerMob(EntityShadow.class, "shadow", 1, MCColor.DYE_BLACK.getRGB(), MCColor.DYE_WHITE.getRGB());
         helper.registerMob(EntityPhantasmicSpider.class, "spider", 2, MCColor.DYE_MAGENTA.getRGB(), MCColor.DYE_PURPLE.getRGB());
 
@@ -49,12 +47,9 @@ public class Nightmares {
     @SubscribeEvent
     public void playerSleep (PlayerSleepInBedEvent event) {
 
-        event.setResult(SleepResult.NOT_SAFE);
+        if (!event.getEntityPlayer().getEntityWorld().isRemote)
 
-        final EntityZombie zombie = new EntityZombie(event.getEntityPlayer().getEntityWorld());
-        final BlockPos ps = event.getPos();
-        zombie.setPosition(ps.getX() + 0.5f, ps.getY() + 0.6f, ps.getZ() + 0.5f);
-        zombie.setRevengeTarget(event.getEntityPlayer());
-        event.getEntityPlayer().getEntityWorld().spawnEntity(zombie);
+            // TODO add a probability
+            new NightmareTracker(event.getEntityPlayer());
     }
 }
