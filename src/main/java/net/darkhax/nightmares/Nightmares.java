@@ -22,6 +22,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Mod(modid = "nightmares", name = "Nightmares", version = "@VERSION@", dependencies = "required-after:bookshelf@[2.2.457,);", certificateFingerprint = "@FINGERPRINT@")
 public class Nightmares {
@@ -50,8 +52,12 @@ public class Nightmares {
         NIGHTMARE_REGISTRY.addEntry(new NightmareBase("nightmares:hag").addSpawn("nightmares:hag", 1, 1), 25);
         NIGHTMARE_REGISTRY.addEntry(new NightmareBase("nightmares:shadow").addSpawn("nightmares:shadow", 1, 3), 25);
         NIGHTMARE_REGISTRY.addEntry(new NightmareBase("nightmares:spiders").addSpawn("nightmares:spider", 1, 8), 25);
+    }
 
-        // TODO probably get around to making things server safe.
+    @EventHandler
+    @SideOnly(Side.CLIENT)
+    public void onClientPreInit (FMLPreInitializationEvent event) {
+
         RenderingRegistry.registerEntityRenderingHandler(EntityHag.class, new RenderHag.Factory());
         RenderingRegistry.registerEntityRenderingHandler(EntityShadow.class, new RenderShadow.Factory());
         RenderingRegistry.registerEntityRenderingHandler(EntityPhantasmicSpider.class, new RenderPhantasmicSpider.Factory());
