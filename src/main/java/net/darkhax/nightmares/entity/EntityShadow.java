@@ -1,7 +1,9 @@
 package net.darkhax.nightmares.entity;
 
 import net.darkhax.bookshelf.entity.EntityPlayerMob;
+import net.darkhax.nightmares.Nightmares;
 import net.darkhax.nightmares.entity.ai.EntityAINightmareAttackMelee;
+import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
@@ -39,5 +41,11 @@ public class EntityShadow extends EntityPlayerMob {
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6D);
+    }
+    
+    @Override
+    public EnumCreatureAttribute getCreatureAttribute() {
+        
+        return Nightmares.NIGHTMARE;
     }
 }

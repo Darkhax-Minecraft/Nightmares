@@ -2,6 +2,8 @@ package net.darkhax.nightmares.entity;
 
 import javax.annotation.Nullable;
 
+import net.darkhax.nightmares.Nightmares;
+import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntitySpider;
@@ -49,5 +51,11 @@ public class EntityPhantasmicSpider extends EntitySpider {
     public float getEyeHeight () {
 
         return 0.45F;
+    }
+    
+    @Override
+    public EnumCreatureAttribute getCreatureAttribute() {
+        
+        return Nightmares.NIGHTMARE;
     }
 }
