@@ -12,6 +12,7 @@ import net.darkhax.nightmares.entity.render.RenderPhantasmicSpider;
 import net.darkhax.nightmares.entity.render.RenderShadow;
 import net.darkhax.nightmares.handler.NightmareTracker;
 import net.darkhax.nightmares.nightmare.INightmare;
+import net.darkhax.nightmares.nightmare.NightmareBase;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
@@ -46,6 +47,10 @@ public class Nightmares {
         helper.registerMob(EntityShadow.class, "shadow", 1, MCColor.DYE_BLACK.getRGB(), MCColor.DYE_WHITE.getRGB());
         helper.registerMob(EntityPhantasmicSpider.class, "spider", 2, MCColor.DYE_MAGENTA.getRGB(), MCColor.DYE_PURPLE.getRGB());
 
+        NIGHTMARE_REGISTRY.addEntry(new NightmareBase("nightmares:hag").addSpawn("nightmares:hag", 1, 1), 25);
+        NIGHTMARE_REGISTRY.addEntry(new NightmareBase("nightmares:shadow").addSpawn("nightmares:shadow", 1, 3), 25);
+        NIGHTMARE_REGISTRY.addEntry(new NightmareBase("nightmares:spiders").addSpawn("nightmares:spider", 1, 8), 25);
+        
         // TODO probably get around to making things server safe.
         RenderingRegistry.registerEntityRenderingHandler(EntityHag.class, new RenderHag.Factory());
         RenderingRegistry.registerEntityRenderingHandler(EntityShadow.class, new RenderShadow.Factory());
