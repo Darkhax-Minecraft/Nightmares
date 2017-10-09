@@ -7,6 +7,7 @@ import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntitySpider;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -57,5 +58,11 @@ public class EntityPhantasmicSpider extends EntitySpider {
     public EnumCreatureAttribute getCreatureAttribute () {
 
         return Nightmares.NIGHTMARE;
+    }
+
+    @Override
+    public ResourceLocation getLootTable () {
+
+        return null;
     }
 }

@@ -12,6 +12,7 @@ import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 public class EntityShadow extends EntityPlayerMob {
@@ -47,5 +48,11 @@ public class EntityShadow extends EntityPlayerMob {
     public EnumCreatureAttribute getCreatureAttribute () {
 
         return Nightmares.NIGHTMARE;
+    }
+
+    @Override
+    public ResourceLocation getLootTable () {
+
+        return null;
     }
 }
