@@ -52,10 +52,10 @@ public class EntityPhantasmicSpider extends EntitySpider {
 
         return 0.45F;
     }
-    
+
     @Override
-    public EnumCreatureAttribute getCreatureAttribute() {
-        
+    public EnumCreatureAttribute getCreatureAttribute () {
+
         return Nightmares.NIGHTMARE;
     }
 }

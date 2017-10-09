@@ -42,10 +42,10 @@ public class EntityShadow extends EntityPlayerMob {
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6D);
     }
-    
+
     @Override
-    public EnumCreatureAttribute getCreatureAttribute() {
-        
+    public EnumCreatureAttribute getCreatureAttribute () {
+
         return Nightmares.NIGHTMARE;
     }
 }

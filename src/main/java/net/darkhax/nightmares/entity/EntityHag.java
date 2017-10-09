@@ -42,10 +42,10 @@ public class EntityHag extends EntityPlayerMob {
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.5D);
     }
-    
+
     @Override
-    public EnumCreatureAttribute getCreatureAttribute() {
-        
+    public EnumCreatureAttribute getCreatureAttribute () {
+
         return Nightmares.NIGHTMARE;
     }
 }

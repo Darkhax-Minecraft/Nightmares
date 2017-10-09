@@ -67,8 +67,8 @@ public class Nightmares {
     @SubscribeEvent
     public void playerSleep (PlayerSleepInBedEvent event) {
 
-        if (!event.getEntityPlayer().getEntityWorld().isRemote && MathsUtils.tryPercentage(0.05)) {
-            
+        if (!event.getEntityPlayer().getEntityWorld().isRemote && MathsUtils.tryPercentage(0.05f)) {
+
             new NightmareTracker(event.getEntityPlayer());
         }
     }
