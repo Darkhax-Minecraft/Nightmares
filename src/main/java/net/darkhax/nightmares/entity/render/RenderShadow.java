@@ -3,6 +3,7 @@ package net.darkhax.nightmares.entity.render;
 import net.darkhax.bookshelf.client.model.ModelPlayerMob;
 import net.darkhax.bookshelf.client.rendering.RenderPlayerMob;
 import net.darkhax.nightmares.entity.EntityShadow;
+import net.darkhax.nightmares.entity.render.layer.LayerShadowEyes;
 import net.minecraft.client.renderer.GlStateManager.Profile;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -21,6 +22,7 @@ public class RenderShadow extends RenderPlayerMob<EntityShadow> {
         // TODO randomize player model
         super(renderManager, new ModelPlayerMob(0.5f, false));
         this.setBlendProfile(Profile.TRANSPARENT_MODEL);
+        this.addLayer(new LayerShadowEyes(this));
     }
 
     @Override
