@@ -50,7 +50,7 @@ public class Nightmares {
         NIGHTMARE_REGISTRY.addEntry(new NightmareBase("nightmares:hag").addSpawn("nightmares:hag", 1, 1), 25);
         NIGHTMARE_REGISTRY.addEntry(new NightmareBase("nightmares:shadow").addSpawn("nightmares:shadow", 1, 3), 25);
         NIGHTMARE_REGISTRY.addEntry(new NightmareBase("nightmares:spiders").addSpawn("nightmares:spider", 1, 8), 25);
-        
+
         // TODO probably get around to making things server safe.
         RenderingRegistry.registerEntityRenderingHandler(EntityHag.class, new RenderHag.Factory());
         RenderingRegistry.registerEntityRenderingHandler(EntityShadow.class, new RenderShadow.Factory());

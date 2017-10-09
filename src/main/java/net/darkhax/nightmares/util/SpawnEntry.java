@@ -29,23 +29,23 @@ public class SpawnEntry {
     }
 
     public SpawnEntry (int min, int max, String entityId) {
-        
+
         this(min, max, new ResourceLocation(entityId));
     }
 
     public List<Entity> spawn (World world, BlockPos pos) {
 
         final List<Entity> entities = new ArrayList<>();
-        
+
         for (int i = 0; i < MathsUtils.nextIntInclusive(this.min, this.max); i++) {
 
             final Entity entity = EntityList.createEntityByIDFromName(this.entityId, world);
             entity.setPositionAndUpdate(pos.getX() + 0.5f, pos.getY() + 0.5f, pos.getZ() + 0.5f);
             world.spawnEntity(entity);
-            
+
             entities.add(entity);
         }
-        
+
         return entities;
     }
 

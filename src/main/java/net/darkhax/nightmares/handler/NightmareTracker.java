@@ -53,14 +53,15 @@ public class NightmareTracker {
 
                 this.player.wakeUpPlayer(true, true, false);
                 this.stop();
-                
+
                 final INightmare nightmare = Nightmares.NIGHTMARE_REGISTRY.getRandomEntry().getEntry();
-                
-                // Chat message, because action bar messages don't support colours and formatting.
+
+                // Chat message, because action bar messages don't support colours and
+                // formatting.
                 this.player.sendMessage(nightmare.alertPlayer(this.player));
-                
+
                 // Spawn mobs
-                nightmare.spawnMobs(this.player, player.getPosition());
+                nightmare.spawnMobs(this.player, this.player.getPosition());
             }
         }
     }
