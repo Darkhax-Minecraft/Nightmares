@@ -52,7 +52,7 @@ public class Nightmares {
 
         NIGHTMARE_REGISTRY.addEntry(new NightmareBase("nightmares:hag").addSpawn("nightmares:hag", 1, 1), 25);
         NIGHTMARE_REGISTRY.addEntry(new NightmareBase("nightmares:shadow").addSpawn("nightmares:shadow", 1, 3), 25);
-        NIGHTMARE_REGISTRY.addEntry(new NightmareBase("nightmares:spiders").addSpawn("nightmares:spider", 1, 8), 25);
+        NIGHTMARE_REGISTRY.addEntry(new NightmareBase("nightmares:spiders").addSpawn("nightmares:spider", 3, 8), 25);
     }
 
     @EventHandler
