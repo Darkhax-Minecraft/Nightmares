@@ -4,6 +4,7 @@ import net.darkhax.bookshelf.lib.LoggingHelper;
 import net.darkhax.bookshelf.lib.MCColor;
 import net.darkhax.bookshelf.lib.WeightedSelector;
 import net.darkhax.bookshelf.registry.RegistryHelper;
+import net.darkhax.bookshelf.util.MathsUtils;
 import net.darkhax.nightmares.entity.EntityHag;
 import net.darkhax.nightmares.entity.EntityPhantasmicSpider;
 import net.darkhax.nightmares.entity.EntityShadow;
@@ -66,8 +67,8 @@ public class Nightmares {
     @SubscribeEvent
     public void playerSleep (PlayerSleepInBedEvent event) {
 
-        if (!event.getEntityPlayer().getEntityWorld().isRemote) {
-            // TODO add a probability
+        if (!event.getEntityPlayer().getEntityWorld().isRemote && MathsUtils.tryPercentage(0.05)) {
+            
             new NightmareTracker(event.getEntityPlayer());
         }
     }
