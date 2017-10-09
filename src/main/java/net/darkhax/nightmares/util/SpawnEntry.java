@@ -3,6 +3,7 @@ package net.darkhax.nightmares.util;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.darkhax.bookshelf.lib.Constants;
 import net.darkhax.bookshelf.util.MathsUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -40,7 +41,8 @@ public class SpawnEntry {
         for (int i = 0; i < MathsUtils.nextIntInclusive(this.min, this.max); i++) {
 
             final Entity entity = EntityList.createEntityByIDFromName(this.entityId, world);
-            entity.setPositionAndUpdate(pos.getX() + 0.5f, pos.getY() + 0.5f, pos.getZ() + 0.5f);
+            final float offset = Constants.RANDOM.nextFloat() / 5f;
+            entity.setPositionAndUpdate(pos.getX() + 0.5f, pos.getY() + 0.5f + offset, pos.getZ() + 0.5f);
             world.spawnEntity(entity);
 
             entities.add(entity);
