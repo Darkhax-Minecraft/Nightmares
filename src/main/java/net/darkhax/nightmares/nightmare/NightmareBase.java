@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.darkhax.nightmares.util.SpawnEntry;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
@@ -55,9 +57,19 @@ public class NightmareBase implements INightmare {
     @Override
     public void spawnMobs (EntityPlayer player, BlockPos pos) {
 
+        final List<Entity> entities = new ArrayList<>();
+        
         for (final SpawnEntry entry : this.spawns) {
 
-            entry.spawn(player.world, pos);
+            entities.addAll(entry.spawn(player.world, pos));
+        }
+        
+        for (Entity entity : entities) {
+            
+            if (entity instanceof EntityLivingBase) {
+                
+                ((EntityLivingBase) entity).setRevengeTarget(player);
+            }
         }
     }
 
