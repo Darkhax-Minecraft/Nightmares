@@ -19,11 +19,21 @@ public class NightmareBase implements INightmare {
 
     public ResourceLocation id;
 
+    public NightmareBase (String id) {
+        
+        this(new ResourceLocation(id));
+    }
+    
     public NightmareBase (ResourceLocation id) {
 
         this.id = id;
     }
 
+    public NightmareBase addSpawn (String entityId, int min, int max) {
+        
+        return this.addSpawn(new SpawnEntry(min, max, entityId));
+    }
+    
     public NightmareBase addSpawn (SpawnEntry spawn) {
 
         this.spawns.add(spawn);

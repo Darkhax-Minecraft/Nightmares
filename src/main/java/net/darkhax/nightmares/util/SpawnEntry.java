@@ -25,6 +25,11 @@ public class SpawnEntry {
         this.entityId = entityId;
     }
 
+    public SpawnEntry (int min, int max, String entityId) {
+        
+        this(min, max, new ResourceLocation(entityId));
+    }
+
     public void spawn (World world, BlockPos pos) {
 
         for (int i = 0; i < MathsUtils.nextIntInclusive(this.min, this.max); i++) {
