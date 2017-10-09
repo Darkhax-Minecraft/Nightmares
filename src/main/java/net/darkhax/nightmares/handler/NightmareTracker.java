@@ -1,5 +1,7 @@
 package net.darkhax.nightmares.handler;
 
+import net.darkhax.nightmares.Nightmares;
+import net.darkhax.nightmares.nightmare.INightmare;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -51,6 +53,14 @@ public class NightmareTracker {
 
                 this.player.wakeUpPlayer(true, true, false);
                 this.stop();
+                
+                final INightmare nightmare = Nightmares.NIGHTMARE_REGISTRY.getRandomEntry().getEntry();
+                
+                // Chat message, because action bar messages don't support colours and formatting.
+                this.player.sendMessage(nightmare.alertPlayer(this.player));
+                
+                // Spawn mobs
+                nightmare.spawnMobs(this.player, player.getPosition());
             }
         }
     }
