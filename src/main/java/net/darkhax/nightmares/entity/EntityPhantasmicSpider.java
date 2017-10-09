@@ -19,6 +19,7 @@ public class EntityPhantasmicSpider extends EntitySpider {
 
         super(world);
         this.setSize(0.7F, 0.5F);
+        this.experienceValue = 3;
     }
 
     @Override

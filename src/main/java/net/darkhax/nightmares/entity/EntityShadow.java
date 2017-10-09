@@ -20,6 +20,7 @@ public class EntityShadow extends EntityPlayerMob {
     public EntityShadow (World world) {
 
         super(world);
+        this.experienceValue = 10;
     }
 
     @Override

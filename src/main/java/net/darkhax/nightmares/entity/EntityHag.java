@@ -20,6 +20,7 @@ public class EntityHag extends EntityPlayerMob {
     public EntityHag (World world) {
 
         super(world);
+        this.experienceValue = 10;
     }
 
     @Override
