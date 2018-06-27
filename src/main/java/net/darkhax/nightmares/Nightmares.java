@@ -45,6 +45,7 @@ public class Nightmares {
     @EventHandler
     public void onPreInit (FMLPreInitializationEvent event) {
 
+    	new ConfigurationHandler(event.getSuggestedConfigurationFile());
         MinecraftForge.EVENT_BUS.register(this);
         helper.registerMob(EntityHag.class, "hag", 0, MCColor.DYE_LIME.getRGB(), MCColor.DYE_YELLOW.getRGB());
         helper.registerMob(EntityShadow.class, "shadow", 1, MCColor.DYE_BLACK.getRGB(), MCColor.DYE_WHITE.getRGB());
@@ -67,7 +68,7 @@ public class Nightmares {
     @SubscribeEvent
     public void playerSleep (PlayerSleepInBedEvent event) {
 
-        if (!event.getEntityPlayer().getEntityWorld().isRemote && MathsUtils.tryPercentage(0.05f)) {
+        if (!event.getEntityPlayer().getEntityWorld().isRemote && MathsUtils.tryPercentage(ConfigurationHandler.nightmareChance)) {
 
             new NightmareTracker(event.getEntityPlayer());
         }
