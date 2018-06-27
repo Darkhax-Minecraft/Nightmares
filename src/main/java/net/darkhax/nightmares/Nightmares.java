@@ -15,6 +15,8 @@ import net.darkhax.nightmares.handler.NightmareTracker;
 import net.darkhax.nightmares.nightmare.INightmare;
 import net.darkhax.nightmares.nightmare.NightmareBase;
 import net.minecraft.entity.EnumCreatureAttribute;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
@@ -29,6 +31,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @Mod(modid = "nightmares", name = "Nightmares", version = "@VERSION@", dependencies = "required-after:bookshelf@[2.2.464,);", certificateFingerprint = "@FINGERPRINT@")
 public class Nightmares {
 
+	public static final String MOD_ID = "nightmares";
     public static final RegistryHelper helper = new RegistryHelper("nightmares").enableAutoRegistration();
     public static final LoggingHelper log = new LoggingHelper("nightmares");
 
@@ -42,6 +45,10 @@ public class Nightmares {
      */
     public static final EnumCreatureAttribute NIGHTMARE = EnumHelper.addCreatureAttribute("NIGHTMARE");
 
+    public static final ResourceLocation LOOT_ENTITIES_HAG = LootTableList.register(new ResourceLocation(MOD_ID, "entities/hag"));
+    public static final ResourceLocation LOOT_ENTITIES_SPIDER = LootTableList.register(new ResourceLocation(MOD_ID, "entities/phantom_spider"));
+    public static final ResourceLocation LOOT_ENTITIES_SHADOW = LootTableList.register(new ResourceLocation(MOD_ID, "entities/shadow"));
+    
     @EventHandler
     public void onPreInit (FMLPreInitializationEvent event) {
 

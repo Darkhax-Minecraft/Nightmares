@@ -54,6 +54,6 @@ public class EntityShadow extends EntityPlayerMob {
     @Override
     public ResourceLocation getLootTable () {
 
-        return null;
+        return Nightmares.LOOT_ENTITIES_SHADOW;
     }
 }

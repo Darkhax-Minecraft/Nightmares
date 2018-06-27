@@ -64,6 +64,6 @@ public class EntityPhantasmicSpider extends EntitySpider {
     @Override
     public ResourceLocation getLootTable () {
 
-        return null;
+        return Nightmares.LOOT_ENTITIES_SPIDER;
     }
 }
