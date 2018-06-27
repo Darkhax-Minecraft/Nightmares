@@ -45,7 +45,7 @@ public class NightmareTracker {
         }
 
         // Tick the nightmare
-        if (event.player == this.player) {
+        else if (event.player == this.player) {
 
             this.ticksTillAttack--;
 
