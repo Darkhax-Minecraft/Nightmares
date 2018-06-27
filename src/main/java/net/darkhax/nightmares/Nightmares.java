@@ -32,8 +32,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class Nightmares {
 
 	public static final String MOD_ID = "nightmares";
-    public static final RegistryHelper helper = new RegistryHelper("nightmares").enableAutoRegistration();
-    public static final LoggingHelper log = new LoggingHelper("nightmares");
+    public static final RegistryHelper HELPER = new RegistryHelper(MOD_ID).enableAutoRegistration();
+    public static final LoggingHelper LOG = new LoggingHelper(MOD_ID);
 
     /**
      * A weighted registry of all the nightmare situations.
@@ -54,9 +54,9 @@ public class Nightmares {
 
     	new ConfigurationHandler(event.getSuggestedConfigurationFile());
         MinecraftForge.EVENT_BUS.register(this);
-        helper.registerMob(EntityHag.class, "hag", 0, MCColor.DYE_LIME.getRGB(), MCColor.DYE_YELLOW.getRGB());
-        helper.registerMob(EntityShadow.class, "shadow", 1, MCColor.DYE_BLACK.getRGB(), MCColor.DYE_WHITE.getRGB());
-        helper.registerMob(EntityPhantasmicSpider.class, "spider", 2, MCColor.DYE_MAGENTA.getRGB(), MCColor.DYE_PURPLE.getRGB());
+        HELPER.registerMob(EntityHag.class, "hag", 0, MCColor.DYE_LIME.getRGB(), MCColor.DYE_YELLOW.getRGB());
+        HELPER.registerMob(EntityShadow.class, "shadow", 1, MCColor.DYE_BLACK.getRGB(), MCColor.DYE_WHITE.getRGB());
+        HELPER.registerMob(EntityPhantasmicSpider.class, "spider", 2, MCColor.DYE_MAGENTA.getRGB(), MCColor.DYE_PURPLE.getRGB());
 
         NIGHTMARE_REGISTRY.addEntry(new NightmareBase("nightmares:hag").addSpawn("nightmares:hag", 1, 1), 25);
         NIGHTMARE_REGISTRY.addEntry(new NightmareBase("nightmares:shadow").addSpawn("nightmares:shadow", 1, 3), 25);
