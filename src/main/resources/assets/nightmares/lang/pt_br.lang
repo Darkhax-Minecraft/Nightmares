@@ -1,0 +1,10 @@
+#Brazilian Portuguese language file for Nightmares
+
+#Entity Names
+entity.nightmares.hag.name=Bruxa
+entity.nightmares.shadow.name=Vulto
+entity.nightmares.spider.name=Aranha demoníaca
+
+#Misc
+death.nightmare.attack=%s faleceu enquanto dormia...
+nightmare.default.alert=Foi apenas um pesadelo...
