@@ -1,5 +1,11 @@
 package net.darkhax.nightmares;
 
+import java.util.List;
+
+import javax.annotation.Nullable;
+
+import com.google.common.base.Predicate;
+
 import net.darkhax.bookshelf.lib.LoggingHelper;
 import net.darkhax.bookshelf.lib.MCColor;
 import net.darkhax.bookshelf.lib.WeightedSelector;
@@ -14,8 +20,15 @@ import net.darkhax.nightmares.entity.render.RenderShadow;
 import net.darkhax.nightmares.handler.NightmareTracker;
 import net.darkhax.nightmares.nightmare.INightmare;
 import net.darkhax.nightmares.nightmare.NightmareBase;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureAttribute;
+import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.EnumDifficulty;
+import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
@@ -75,7 +88,9 @@ public class Nightmares {
     @SubscribeEvent
     public void playerSleep (PlayerSleepInBedEvent event) {
 
-        if (!event.getEntityPlayer().getEntityWorld().isRemote && MathsUtils.tryPercentage(ConfigurationHandler.nightmareChance)) {
+    	final World world = event.getEntityPlayer().getEntityWorld();
+    	
+        if (!world.isRemote && world.getDifficulty() != EnumDifficulty.PEACEFUL && MathsUtils.tryPercentage(ConfigurationHandler.nightmareChance)) {
 
             new NightmareTracker(event.getEntityPlayer());
         }
