@@ -1,0 +1,10 @@
+#English language file for Nightmares
+
+#Entity Names
+entity.nightmares.hag.name=Sorcière verte
+entity.nightmares.shadow.name=Être de l'ombre
+entity.nightmares.spider.name=Araignée fantomatique
+
+#Misc
+death.nightmare.attack=%s s'est fait dévorer par ses chauchemars...
+nightmare.default.alert=Ce n'était qu'un cauchemar...
