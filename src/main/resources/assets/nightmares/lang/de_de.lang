@@ -1,0 +1,10 @@
+#German language file for Nightmares
+
+#Entity Names
+entity.nightmares.hag.name=Altes Weib
+entity.nightmares.shadow.name=Schattenperson
+entity.nightmares.spider.name=Phantomhafte Spinne
+
+#Misc
+death.nightmare.attack=%s wurde von deren Albträumen verzehrt.
+nightmare.default.alert=Es war nur ein Traum...
